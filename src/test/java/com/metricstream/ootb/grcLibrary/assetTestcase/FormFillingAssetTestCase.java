@@ -19,7 +19,7 @@ public class FormFillingAssetTestCase extends GrcLibraryTestCase {
         Thread.sleep(12000);
         WebElement clickAssetForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Asset'][normalize-space()='Asset']"));
         clickAssetForm.click();
-        Thread.sleep(11000);
+        Thread.sleep(12000);
         WebElement name = driver.findElement(By.xpath("//input[@aria-label='Name']"));
         name.sendKeys("Auto_Test_3rd_Oct_Asset");
         Thread.sleep(2000);
@@ -100,6 +100,47 @@ public class FormFillingAssetTestCase extends GrcLibraryTestCase {
         WebElement durationFive = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[4]"));
         durationFive.click();
         Thread.sleep(3000);
+        WebElement primaryLoc = driver.findElement(By.xpath("(//span[@class='select2-arrow'])[13]"));
+        primaryLoc.click();
+        Thread.sleep(4000);
+        WebElement searchLoc = driver.findElement(By.xpath("(//input[@type='search'])[3]"));
+        searchLoc.sendKeys("Cloud");
+        Thread.sleep(4000);
+        WebElement searchClick = driver.findElement(By.xpath("(//i[@class='icn icn-arrow-o-right'])[1]"));
+        searchClick.click();
+        Thread.sleep(4000);
+        WebElement selectLoc = driver.findElement(By.xpath("(//input[@tabindex='-1'])[9]"));
+        selectLoc.click();
+        Thread.sleep(4000);
+        WebElement clickDone = driver.findElement(By.id("done"));
+        clickDone.click();
+        Thread.sleep(4000);
+        WebElement secondLoc = driver.findElement(By.xpath("(//button[@title='Secondary Locations, Press to Change'])[1]"));
+        secondLoc.click();
+        Thread.sleep(4000);
+        WebElement searchLocSec = driver.findElement(By.xpath("(//input[@type='search'])[3]"));
+        searchLocSec.sendKeys("DRC");
+        Thread.sleep(4000);
+        WebElement searchClickSec = driver.findElement(By.xpath("(//i[@class='icn icn-arrow-o-right'])[1]"));
+        searchClickSec.click();
+        Thread.sleep(4000);
+        WebElement selectLocSec = driver.findElement(By.xpath("(//input[@tabindex='-1'])[11]"));
+        selectLocSec.click();
+        Thread.sleep(4000);
+        WebElement clickDoneSec = driver.findElement(By.id("done"));
+        clickDoneSec.click();
+        Thread.sleep(4000);
+        WebElement strtDate = driver.findElement(By.xpath("//input[@placeholder='Valid From']"));
+        strtDate.sendKeys("10/10/2023");
+        Thread.sleep(1000);
+        //WebElement dateStrtSelect = driver.findElement(By.xpath("(//a[@class='btn btn-default btn-select-calendar'])[1]"));
+        //dateStrtSelect.click();
+        //fill end date
+        WebElement endDate = driver.findElement(By.xpath("//input[@placeholder='Valid Until']"));
+        endDate.sendKeys("20/11/2023");
+        Thread.sleep(1000);
+
+
 
 
         //Fill types lov

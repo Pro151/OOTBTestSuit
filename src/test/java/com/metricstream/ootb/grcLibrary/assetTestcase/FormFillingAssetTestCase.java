@@ -1,4 +1,4 @@
-package com.metricstream.ootb.grcLibrary.aocTestCase;
+package com.metricstream.ootb.grcLibrary.assetTestcase;
 
 import com.UtilityPkg.common.GrcLibraryTestCase;
 import org.openqa.selenium.By;
@@ -10,25 +10,103 @@ import org.testng.annotations.Test;
 public class FormFillingAssetTestCase extends GrcLibraryTestCase {
 
 
-
     @Test
-    public void aocFormFill() throws InterruptedException {
+    public void asstFormFill() throws InterruptedException {
         //Fill general section
         WebDriver driver =GRCTestMethod();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //Fill name field
         Thread.sleep(12000);
-        WebElement clickAocForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Area of Compliance'][normalize-space()='Area of Compliance']"));
-        clickAocForm.click();
+        WebElement clickAssetForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Asset'][normalize-space()='Asset']"));
+        clickAssetForm.click();
         Thread.sleep(11000);
         WebElement name = driver.findElement(By.xpath("//input[@aria-label='Name']"));
-        name.sendKeys("Auto_Test_3rd_Oct");
+        name.sendKeys("Auto_Test_3rd_Oct_Asset");
         Thread.sleep(2000);
+        WebElement type = driver.findElement(By.xpath("//span[@aria-label='Type']"));
+        type.click();
+        Thread.sleep(3000);
+        WebElement typeSelect = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[5]"));
+        typeSelect.click();
+        Thread.sleep(4000);
+        WebElement bsnsCricalty = driver.findElement(By.xpath("//span[@aria-label='Business Criticality']"));
+        bsnsCricalty.click();
+        Thread.sleep(3000);
+        WebElement bsnCricaltySelect = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[1]"));
+        bsnCricaltySelect.click();
+        Thread.sleep(3000);
+        WebElement ciaConf = driver.findElement(By.xpath("//span[@aria-label='Confidentiality']"));
+        ciaConf.click();
+        Thread.sleep(3000);
+        WebElement ciaConfSelect = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[2]"));
+        ciaConfSelect.click();
+        WebElement ciaInteg = driver.findElement(By.xpath("//span[@aria-label='Integrity']"));
+        ciaInteg.click();
+        Thread.sleep(3000);
+        WebElement ciaIntegSelect = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[2]"));
+        ciaIntegSelect.click();
+        Thread.sleep(3000);
+        WebElement ciaAvail = driver.findElement(By.xpath("//span[@aria-label='Availability']"));
+        ciaAvail.click();
+        Thread.sleep(3000);
+        WebElement ciaAvailSelect = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[2]"));
+        ciaAvailSelect.click();
+        Thread.sleep(3000);
+
+        js.executeScript("window.scrollBy(0,300);");
+
+        WebElement clasRcover = driver.findElement(By.xpath("//input[@aria-describedby='RECOVERY_TIME_OBJECTIVE_desc']"));
+        clasRcover.sendKeys("600");
+        Thread.sleep(3000);
+        WebElement clsRecoverDur = driver.findElement(By.xpath("(//span[@aria-label='Duration'])[1]"));
+        clsRecoverDur.click();
+        Thread.sleep(3000);
+        WebElement durationOne = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[2]"));
+        durationOne.click();
+        Thread.sleep(3000);
+        WebElement clasRcoverPoint = driver.findElement(By.xpath("//input[@aria-describedby='RECOVERY_POINT_OBJECTIVE_desc']"));
+        clasRcoverPoint.sendKeys("600");
+        Thread.sleep(3000);
+        WebElement clsRecoverDurTwo = driver.findElement(By.xpath("(//span[@aria-label='Duration'])[2]"));
+        clsRecoverDurTwo.click();
+        Thread.sleep(3000);
+        WebElement durationTwo = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[2]"));
+        durationTwo.click();
+        Thread.sleep(3000);
+        WebElement clasRcoverWrk = driver.findElement(By.xpath("//input[@aria-describedby='WORK_RECOVERY_TIME_desc']"));
+        clasRcoverWrk.sendKeys("600");
+        Thread.sleep(3000);
+        WebElement clsRecoverDurThr = driver.findElement(By.xpath("(//span[@aria-label='Duration'])[3]"));
+        clsRecoverDurThr.click();
+        Thread.sleep(3000);
+        WebElement durationThree = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[3]"));
+        durationThree.click();
+        Thread.sleep(3000);
+        WebElement clasRcoverMax = driver.findElement(By.xpath("//input[@aria-describedby='MAXIMUM_TOLERABLE_DOWNTIME_desc']"));
+        clasRcoverMax.sendKeys("600");
+        Thread.sleep(3000);
+        WebElement clsRecoverDurFour = driver.findElement(By.xpath("(//span[@aria-label='Duration'])[4]"));
+        clsRecoverDurFour.click();
+        Thread.sleep(3000);
+        WebElement durationFour = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[3]"));
+        durationFour.click();
+        Thread.sleep(3000);
+        WebElement clasRcoverAct = driver.findElement(By.xpath("//input[@aria-describedby='RECOVERY_TIME_ACTUAL_desc']"));
+        clasRcoverAct.sendKeys("600");
+        Thread.sleep(3000);
+        WebElement clsRecoverDurFive = driver.findElement(By.xpath("(//span[@aria-label='Duration'])[5]"));
+        clsRecoverDurFive.click();
+        Thread.sleep(3000);
+        WebElement durationFive = driver.findElement(By.xpath("(//div[@class='select2-result-label'])[4]"));
+        durationFive.click();
+        Thread.sleep(3000);
+
+
         //Fill types lov
         //new Select(driver.findElement(By.xpath("//input[@aria-label='Type to Search']"))).selectByVisibleText("Environmental");
         //select lov
         //new Select(driver.findElement(By.xpath("//input[@aria-label='Type to Search']"))).selectByVisibleText("Corporate");
-        WebElement type = driver.findElement(By.xpath("//input[@aria-label='Type to Search']"));
+        /*WebElement type = driver.findElement(By.xpath("//input[@aria-label='Type to Search']"));
         type.click();
         Thread.sleep(5000);
 
@@ -119,7 +197,7 @@ public class FormFillingAssetTestCase extends GrcLibraryTestCase {
         WebElement submitButton = driver.findElement(By.id("submit"));
         submitButton.click();
         Thread.sleep(12000);
-        driver.quit();
+        driver.quit();*/
 
     }
 

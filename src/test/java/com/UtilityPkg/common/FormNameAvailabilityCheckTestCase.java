@@ -69,7 +69,7 @@ public class FormNameAvailabilityCheckTestCase extends LoginPageTestCase{
             if (char1 != char2) {
                 differences.append("Position ").append(i + 1).append(": '").append(char1).append("' vs '").append(char2).append("'\n");
             }
-        }
+        }   //chnage
 
         // Handle any remaining characters in the longer string
         if (grcObjectList.length() > minLength) {

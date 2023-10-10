@@ -1,74 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AOCSanitySuit" parallel="false">
+        <listeners>
+            <listener class-name="com.UtilityPkg.ListenersClass"/>
+        </listeners>
 
 
-<suite name="OOTBRegressionTestSuit1" parallel="false">
+        <!-- Area of Compliance Form Workflow Sanity -->
 
-    <listeners>
-        <listener class-name="com.UtilityPkg.ListenersClass"/>
-    </listeners>
+        <test  name="AreaOfComplianceFormFilling">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingTestCase">
+                    <methods>
+                        <include name="aocFormFill"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+        <test name="OwnerApprovalWF">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.OwnerAocWorkFloeTestCase">
+                    <methods>
+                        <include name="ownerApproval"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+        <test name="LoneApprovalWF">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LoneApproveWorkFlowTestCase">
+                    <methods>
+                        <include name="loneApprovalWf"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+        <test name="LtwoApprovalWF">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LtwoApprovalWorkFlowTestCase">
+                    <methods>
+                        <include name="ltwoApproval"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
 
+        <!-- Asset Form Workflow Sanity -->
 
-    <test  name="AreaOfComplianceFormFilling">
-        <classes>
-        <class name="com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingTestCase">
-                <methods>
-                    <include name="aocFormFill"/>
-                </methods>
-            </class>
-    </classes>
-    </test>
-    <test name="OwnerApprovalWF">
-        <classes>
-            <class name="com.metricstream.ootb.grcLibrary.aocTestCase.OwnerAocWorkFloeTestCase">
-                <methods>
-                    <include name="ownerApproval"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="LoneApprovalWF">
-        <classes>
-            <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LoneApproveWorkFlowTestCase">
-                <methods>
-                    <include name="loneApprovalWf"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="LtwoApprovalWF">
-        <classes>
-            <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LtwoApprovalWorkFlowTestCase">
-                <methods>
-                    <include name="ltwoApproval"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+        <!--<test  name="AreaOfComplianceFormFilling">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingTestCase">
+                    <methods>
+                        <include name="aocFormFill"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+        <test name="OwnerApprovalWF">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.OwnerAocWorkFloeTestCase">
+                    <methods>
+                        <include name="ownerApproval"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+        <test name="LoneApprovalWF">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LoneApproveWorkFlowTestCase">
+                    <methods>
+                        <include name="loneApprovalWf"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+        <test name="LtwoApprovalWF">
+            <classes>
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LtwoApprovalWorkFlowTestCase">
+                    <methods>
+                        <include name="ltwoApproval"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>-->
 
+        <!-- Area of Compliance Workflow Sanity -->
 
-
-
-            <!--<class name="com.metricstream.ootb.grcLibrary.assetTestcase.FormFillingAssetTestCase">
-                <methods>
-                    <include name="asstFormFill"/>
-                </methods>
-            </class>-->
-            <!--<class name="">
-                <methods>
-                    <include name=""/>
-                </methods>
-            </class>
-            <class name="">
-                <methods>
-                    <include name=""/>
-                </methods>
-            </class>
-            <class name="">
-                <methods>
-                    <include name=""/>
-                </methods>
-            </class>-->
 </suite>
-
 

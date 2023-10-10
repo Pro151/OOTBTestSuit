@@ -19,9 +19,21 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         Thread.sleep(12000);
         WebElement clickAocForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Area of Compliance'][normalize-space()='Area of Compliance']"));
         clickAocForm.click();
+        Thread.sleep(7000);
+        WebElement saveFormWithoutData = driver.findElement(By.xpath("//button[@id='btn-save']"));
+        saveFormWithoutData.click();
+        Thread.sleep(4000);
+        WebElement closeForm = driver.findElement(By.xpath("//button[@id='btn-cancel']"));
+        closeForm.click();
+        Thread.sleep(7000);
+        WebElement taskList = driver.findElement(By.xpath("//a[@class='my-tasks-menu  msi-tooltip']"));
+        taskList.click();
+        Thread.sleep(9000);
+        WebElement clickFirstTask = driver.findElement(By.xpath("(//a[@tabindex='-1'])[1]"));
+        clickFirstTask.click();
         Thread.sleep(11000);
         WebElement name = driver.findElement(By.xpath("//input[@aria-label='Name']"));
-        name.sendKeys("Auto_Test_8th_Oct_new");
+        name.sendKeys("Auto_Test_10th_Oct_new");
         Thread.sleep(2000);
         //Fill types lov
         //new Select(driver.findElement(By.xpath("//input[@aria-label='Type to Search']"))).selectByVisibleText("Environmental");
@@ -120,6 +132,10 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         WebElement clickDoneL2 = driver.findElement(By.id("done"));
         clickDoneL2.click();
         Thread.sleep(6000);
+
+
+        //Check relationship section for all objects
+
         WebElement relControl = driver.findElement(By.xpath("//a[@item='Controls']"));
         relControl.click();
         Thread.sleep(10000);
@@ -128,8 +144,20 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         Thread.sleep(4000);
         WebElement clickDoneRelLookup = driver.findElement(By.xpath("(//button[text()='Done'])[1]"));
         clickDoneRelLookup.click();
-        Thread.sleep(4000);
+        Thread.sleep(8000);
         //js.executeScript("window.scrollBy(0,-900);");
+        WebElement saveFormWithData = driver.findElement(By.xpath("//button[@id='btn-save']"));
+        saveFormWithData.click();
+        Thread.sleep(4000);
+        WebElement closeFormWithData = driver.findElement(By.xpath("//button[@id='btn-cancel']"));
+        closeFormWithData.click();
+        Thread.sleep(7000);
+        WebElement taskListwithData = driver.findElement(By.xpath("//a[@class='my-tasks-menu  msi-tooltip']"));
+        taskListwithData.click();
+        Thread.sleep(9000);
+        WebElement clickFirstTaskWithData = driver.findElement(By.xpath("(//a[@tabindex='-1'])[1]"));
+        clickFirstTaskWithData.click();
+        Thread.sleep(11000);
         WebElement sendFApproval = driver.findElement(By.xpath("(//button[@data-original-title='Send for Approval'])"));
         sendFApproval.click();
         Thread.sleep(5000);

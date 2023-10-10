@@ -1,0 +1,11 @@
+Automation points:
+
+1. Checking the availability of  GRC Object Name
+2. Saving of GRC Object Form (with or without data)
+3. Accesing the saved Tasks
+4. //Check relationship section for all objects
+5. Closing form with & without data in initiator stage
+6. Cancelling form in Owner,L1,L2 approver stage
+7. Owner,l1,l2 stage -> request for clarification
+8. Change history & comment history for each stage
+9. Update workflow / re-initiating form

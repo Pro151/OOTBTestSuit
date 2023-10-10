@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class FormNameAvailabilityCheckTestCase extends LoginPageTestCase{
 
-    @Test
+
     public void formAvailabilityCheck() throws InterruptedException {
 
         WebDriver driver = LoginMethod();

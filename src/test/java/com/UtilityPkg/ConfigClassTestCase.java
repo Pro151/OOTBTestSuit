@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class ConfigClassTestCase {
 
 
-    @Test
+
     public WebDriver configMethod(){
 
         WebDriver driver = new ChromeDriver();
@@ -22,6 +22,7 @@ public class ConfigClassTestCase {
     }
 
     public void HelperMethod(){
+
 
 
     }

@@ -7,8 +7,10 @@ import org.testng.annotations.Test;
 
 public class GrcLibraryTestCase extends LoginPageTestCase {
 
-    @Test
+
     public WebDriver GRCTestMethod() throws InterruptedException {
+
+
 
         WebDriver driver = LoginMethod();
         Thread.sleep(9000);

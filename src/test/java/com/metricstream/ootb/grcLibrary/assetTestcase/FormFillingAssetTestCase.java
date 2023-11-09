@@ -19,7 +19,7 @@ public class FormFillingAssetTestCase extends GrcLibraryTestCase {
         Thread.sleep(12000);
         WebElement clickAssetForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Asset'][normalize-space()='Asset']"));
         clickAssetForm.click();
-        Thread.sleep(10000);
+        Thread.sleep(13000);
         WebElement saveFormWithoutData = driver.findElement(By.xpath("//button[@id='btn-save']"));
         saveFormWithoutData.click();
         Thread.sleep(4000);

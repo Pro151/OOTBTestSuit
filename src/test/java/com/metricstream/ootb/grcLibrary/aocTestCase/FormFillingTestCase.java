@@ -19,7 +19,7 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         Thread.sleep(12000);
         WebElement clickAocForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Area of Compliance'][normalize-space()='Area of Compliance']"));
         clickAocForm.click();
-        Thread.sleep(12000);
+        Thread.sleep(15000);
         WebElement saveFormWithoutData = driver.findElement(By.xpath("//button[@id='btn-save']"));
         saveFormWithoutData.click();
         Thread.sleep(4000);
@@ -28,7 +28,7 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         Thread.sleep(7000);
         WebElement taskList = driver.findElement(By.xpath("//a[@class='my-tasks-menu  msi-tooltip']"));
         taskList.click();
-        Thread.sleep(9000);
+        Thread.sleep(10000);
         WebElement clickFirstTask = driver.findElement(By.xpath("(//a[@tabindex='-1'])[1]"));
         clickFirstTask.click();
         Thread.sleep(11000);
@@ -160,7 +160,10 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         Thread.sleep(11000);
         WebElement sendFApproval = driver.findElement(By.xpath("(//button[@data-original-title='Send for Approval'])"));
         sendFApproval.click();
-        Thread.sleep(5000);
+        Thread.sleep(6000);
+        WebElement enterComments = driver.findElement(By.xpath("(//textarea[@aria-label='Comments'])[3]"));
+        enterComments.sendKeys("Send for approval from the initiator to owner");
+        Thread.sleep(7000);
         WebElement submitButton = driver.findElement(By.id("submit"));
         submitButton.click();
         Thread.sleep(12000);

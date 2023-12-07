@@ -16,7 +16,7 @@ public class FormFillingAssetTestCase extends GrcLibraryTestCase {
         WebDriver driver =GRCTestMethod();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //Fill name field
-        Thread.sleep(12000);
+        Thread.sleep(15000);
         WebElement clickAssetForm = driver.findElement(By.xpath("//div[@class='infocenter-action-button dropdown open']//div[@class='dropdown-menu page-header-menu link-infoport']//div//a[@title='Asset'][normalize-space()='Asset']"));
         clickAssetForm.click();
         Thread.sleep(13000);
@@ -250,6 +250,9 @@ public class FormFillingAssetTestCase extends GrcLibraryTestCase {
         WebElement sendFApproval = driver.findElement(By.xpath("(//button[@data-original-title='Send for Approval'])"));
         sendFApproval.click();
         Thread.sleep(5000);
+        WebElement enterComments = driver.findElement(By.xpath("(//textarea[@aria-label='Comments'])[1]"));
+        enterComments.sendKeys("Send for approval from the initiator to owner");
+        Thread.sleep(7000);
         WebElement submitButton = driver.findElement(By.id("submit"));
         submitButton.click();
         Thread.sleep(12000);

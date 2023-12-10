@@ -74,7 +74,7 @@ public class LoginPageTestCase extends ConfigClassTestCase {
         WebElement loginE = driver.findElement(By.xpath("//font[text()=\"System User Login\"]"));
         loginE.click();
         WebElement uName = driver.findElement(By.name("username"));
-        uName.sendKeys("ME_Test_User_3");
+        uName.sendKeys("ME_Test_User_1");
         WebElement pWd = driver.findElement(By.name("passwordHolder"));
         pWd.sendKeys("welcome*12");
         WebElement loginBtn = driver.findElement(By.id("passwordLoginBtn"));

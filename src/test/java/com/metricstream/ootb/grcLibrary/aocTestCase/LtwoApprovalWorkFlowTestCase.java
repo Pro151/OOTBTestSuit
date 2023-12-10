@@ -5,11 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class LtwoApprovalWorkFlowTestCase  extends LoginPageTestCase {
 
-    @Test
+    @Test(priority = 1)
     public void ltwoApproval() throws InterruptedException {
         WebDriver driver = ApprovalLogicLtwo();
         //JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -60,7 +61,7 @@ public class LtwoApprovalWorkFlowTestCase  extends LoginPageTestCase {
 
     }
 
-    @Test
+    @Test(priority = 2, dependsOnMethods = "ltwoApproval")
     public void accessAocReport() throws InterruptedException {
 
         WebDriver driver = openReport();

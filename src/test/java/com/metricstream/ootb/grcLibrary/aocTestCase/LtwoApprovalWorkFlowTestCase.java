@@ -5,14 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class LtwoApprovalWorkFlowTestCase  extends LoginPageTestCase {
 
     @Test(priority = 1)
     public void ltwoApproval() throws InterruptedException {
-        WebDriver driver = ApprovalLogicLtwo();
+        WebDriver driver = ApprovalLogicTwo();
         //JavascriptExecutor js = (JavascriptExecutor) driver;
 
         Thread.sleep(10000);

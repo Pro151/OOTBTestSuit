@@ -6,12 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class ReqForClarification extends LoginPageTestCase {
+public class ReqForClarificationTestCase extends LoginPageTestCase {
 
     @Test
     public void ReqForClarify() throws InterruptedException {
 
-        WebDriver driver = ReqFCarify();
+        WebDriver driver = ReqFClarifyTestCase();
         //JavascriptExecutor js = (JavascriptExecutor) driver;
 
         Thread.sleep(10000);

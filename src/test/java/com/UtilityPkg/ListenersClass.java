@@ -4,10 +4,11 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import java.io.IOException;
-
 public class ListenersClass implements ITestListener {
 
+
+   // private ExtentReports extent = ExtentManager.createInstance();
+    //private ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     @Override
     public void onTestStart(ITestResult result) {
         // TODO Auto-generated method stub

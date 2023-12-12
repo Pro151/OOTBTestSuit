@@ -1,17 +1,18 @@
-package com.metricstream.ootb.grcLibrary.aocTestCase;
+package com.UtilityPkg;
 
+import com.UtilityPkg.common.GrcLibraryTestCase;
 import com.UtilityPkg.common.LoginPageTestCase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class LtwoApprovalWorkFlowTestCase  extends LoginPageTestCase {
+public class LoneApproveWorkFlowTestCase extends LoginPageTestCase {
 
-    @Test(priority = 1)
-    public void ltwoApproval() throws InterruptedException {
-        WebDriver driver = ApprovalLogicTwo();
+    @Test
+    public void loneApprovalWf() throws InterruptedException {
+
+        WebDriver driver = ApprovalLogicLone();
         //JavascriptExecutor js = (JavascriptExecutor) driver;
 
         Thread.sleep(10000);
@@ -51,25 +52,11 @@ public class LtwoApprovalWorkFlowTestCase  extends LoginPageTestCase {
         clickToApproveTask.click();
         Thread.sleep(8000);
         WebElement enterComments = driver.findElement(By.xpath("(//textarea[@data-id='ACTION_COMMENTS'])"));
-        enterComments.sendKeys("Send for approval from the L2 approver");
+        enterComments.sendKeys("Send for approval from the L1 approver to L2 approver");
         Thread.sleep(7000);
         WebElement clickSubmit = driver.findElement(By.id("submit"));
         clickSubmit.click();
         Thread.sleep(8000);
         driver.close();
-
-    }
-
-    @Test(priority = 2, dependsOnMethods = "ltwoApproval")
-    public void accessAocReport() throws InterruptedException {
-
-        WebDriver driver = openReport();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        WebElement clickAocRpt = driver.findElement(By.xpath("(//a[@data-name='GRC-MS_GRC_Area_Of_Compliance_Report'])[1]"));
-        clickAocRpt.click();
-        Thread.sleep(12000);
-        driver.close();
-
     }
 }

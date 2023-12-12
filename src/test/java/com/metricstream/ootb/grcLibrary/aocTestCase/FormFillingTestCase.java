@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class FormFillingTestCase extends GrcLibraryTestCase {
@@ -144,6 +143,34 @@ public class FormFillingTestCase extends GrcLibraryTestCase {
         Thread.sleep(4000);
         WebElement clickDoneRelLookup = driver.findElement(By.xpath("(//button[text()='Done'])[1]"));
         clickDoneRelLookup.click();
+        Thread.sleep(8000);
+
+        //re Ac
+        WebElement relAoc = driver.findElement(By.xpath("//a[@item='Applies to Organizations']"));
+        relAoc.click();
+        Thread.sleep(10000);
+        WebElement searchOrgBoxAc = driver.findElement(By.xpath("(//input[@placeholder='Search'])[3]"));
+        searchOrgBoxAc.sendKeys("\n" + "Vodacom South Africa");
+        Thread.sleep(4000);
+        WebElement elementSearchIconAc = driver.findElement(By.xpath("//i[@class='icn icn-arrow-o-right']"));
+        elementSearchIconAc.click();
+        Thread.sleep(3000);
+        WebElement clickCheckBoxAc = driver.findElement(By.xpath("//span[@role='treeitem']"));
+        clickCheckBoxAc.click();
+        Thread.sleep(3000);
+        WebElement clickAddOrgAc = driver.findElement(By.xpath("//button[text()='Add']"));
+        clickAddOrgAc.click();
+        Thread.sleep(8000);
+
+        //re risk
+        WebElement relRisk = driver.findElement(By.xpath("//a[@item='Risks']"));
+        relRisk.click();
+        Thread.sleep(10000);
+        WebElement selectRisk = driver.findElement(By.xpath("(//span[@role='checkbox'])[1]"));
+        selectRisk.click();
+        Thread.sleep(4000);
+        WebElement clickDoneRelLookupRisk = driver.findElement(By.xpath("(//button[text()='Done'])[1]"));
+        clickDoneRelLookupRisk.click();
         Thread.sleep(8000);
         //js.executeScript("window.scrollBy(0,-900);");
         WebElement saveFormWithData = driver.findElement(By.xpath("//button[@id='btn-save']"));

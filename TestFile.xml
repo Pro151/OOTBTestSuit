@@ -19,7 +19,7 @@
         </test>
         <test name="OwnerApprovalWF">
             <classes>
-                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.OwnerAocWorkFloeTestCase">
+                <class name="com.UtilityPkg.OwnerAocWorkFloeTestCase">
                     <methods>
                         <include name="ownerApproval"/>
                     </methods>
@@ -28,7 +28,7 @@
         </test>
         <test name="LoneApprovalWF">
             <classes>
-                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LoneApproveWorkFlowTestCase">
+                <class name="com.UtilityPkg.LoneApproveWorkFlowTestCase">
                     <methods>
                         <include name="loneApprovalWf"/>
                     </methods>
@@ -37,7 +37,7 @@
         </test>
         <test name="LtwoApprovalWF">
             <classes>
-                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.LtwoApprovalWorkFlowTestCase">
+                <class name="com.UtilityPkg.LtwoApprovalWorkFlowTestCase">
                     <methods>
                         <include name="ltwoApproval"/>
                     </methods>

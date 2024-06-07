@@ -1,12 +1,12 @@
 package com.UtilityPkg.common;
 
-import com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingTestCase;
+import com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingAocTestCase;
 
 public class ExecutionPoint {
 
     public static void main(String[] args) throws InterruptedException {
 
-        FormFillingTestCase gtc = new FormFillingTestCase();
+        FormFillingAocTestCase gtc = new FormFillingAocTestCase();
         gtc.aocFormFill();
 
 

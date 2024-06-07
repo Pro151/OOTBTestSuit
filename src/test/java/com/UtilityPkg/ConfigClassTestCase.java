@@ -14,7 +14,8 @@ public class ConfigClassTestCase {
     public WebDriver configMethod(){
 
         WebDriver driver = new ChromeDriver();
-        driver.get("https://vodacomuat.a04b.metricstream.com/metricstream/auth/dualLogin.jsp");
+        driver.get("https://golubqaupg.a03a.metricstream.com");
+        //driver.get("https://vodacomuat.a04b.metricstream.com/metricstream/auth/dualLogin.jsp");//https://golubqaupg.a03a.metricstream.com
         //driver.get("https://psdocenecqasrv.rnd.metricstream.com/metricstream/auth/signin.jsp");
         driver.manage().window().maximize();
 

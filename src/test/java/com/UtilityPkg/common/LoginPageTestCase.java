@@ -46,8 +46,8 @@ public class LoginPageTestCase extends ConfigClassTestCase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         // Wait for and click the login link
-        WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
-        loginE.click();
+        //WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
+        //loginE.click();
 
         // Wait for and enter username
         WebElement uName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
@@ -73,8 +73,8 @@ public class LoginPageTestCase extends ConfigClassTestCase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         // Wait for and click the login link
-        WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
-        loginE.click();
+        //WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
+        //loginE.click();
 
         // Wait for and enter username
         WebElement uName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
@@ -100,8 +100,8 @@ public class LoginPageTestCase extends ConfigClassTestCase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         // Wait for and click the login link
-        WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
-        loginE.click();
+        //WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
+        //loginE.click();
 
         // Wait for and enter username
         WebElement uName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
@@ -127,8 +127,8 @@ public class LoginPageTestCase extends ConfigClassTestCase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         // Wait for and click the login link
-        WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
-        loginE.click();
+        //WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
+        //loginE.click();
 
         // Wait for and enter username
         WebElement uName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
@@ -153,8 +153,8 @@ public class LoginPageTestCase extends ConfigClassTestCase {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         // Wait for and click the login link
-        WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
-        loginE.click();
+        //WebElement loginE = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//font[text()=\"System User Login\"]")));
+        //loginE.click();
 
         // Wait for and enter username
         WebElement uName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));

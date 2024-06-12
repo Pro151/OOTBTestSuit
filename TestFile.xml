@@ -10,7 +10,7 @@
 
         <test  name="AreaOfComplianceFormFilling">
             <classes>
-                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingTestCase">
+                <class name="com.metricstream.ootb.grcLibrary.aocTestCase.FormFillingAocTestCase">
                     <methods>
                         <include name="aocFormFill"/>
                     </methods>

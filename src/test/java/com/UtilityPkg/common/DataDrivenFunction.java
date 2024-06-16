@@ -1,5 +1,102 @@
 package com.UtilityPkg.common;
 
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class DataDrivenFunction {
+
+    // Method to fetch data based on the test case name and sheet name
+    public ArrayList<String> getData(String filePath, String sheetName, String testcaseName) throws IOException {
+        ArrayList<String> testData = new ArrayList<>();
+
+        // Load the Excel file
+        FileInputStream fis = new FileInputStream(filePath);
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
+        // Access the specified sheet
+        XSSFSheet sheet = workbook.getSheet(sheetName);
+        if (sheet == null) {
+            workbook.close();
+            throw new IOException("Sheet " + sheetName + " does not exist in the Excel file.");
+        }
+
+        // Identify the column containing "Test_case_ID" by scanning the first row
+        Iterator<Row> rows = sheet.iterator();
+        Row firstRow = rows.next();
+        Iterator<Cell> cellIterator = firstRow.cellIterator();
+
+        int testCaseColumnIndex = -1;
+        int columnIndex = 0;
+        while (cellIterator.hasNext()) {
+            Cell cell = cellIterator.next();
+            if (cell.getStringCellValue().equalsIgnoreCase("Test_case_ID")) {
+                testCaseColumnIndex = columnIndex;
+                break;
+            }
+            columnIndex++;
+        }
+
+        if (testCaseColumnIndex == -1) {
+            workbook.close();
+            throw new IOException("Test_case_ID column not found in the Excel sheet.");
+        }
+
+        // Scan the rows to find the one matching the given test case name
+        while (rows.hasNext()) {
+            Row row = rows.next();
+            Cell testCaseCell = row.getCell(testCaseColumnIndex);
+
+            if (testCaseCell != null && testCaseCell.getCellType() == CellType.STRING &&
+                    testCaseCell.getStringCellValue().equalsIgnoreCase(testcaseName)) {
+
+                // Found the row; now gather data from all columns
+                Iterator<Cell> cellDataIterator = row.cellIterator();
+                while (cellDataIterator.hasNext()) {
+                    Cell dataCell = cellDataIterator.next();
+                    switch (dataCell.getCellType()) {
+                        case STRING:
+                            testData.add(dataCell.getStringCellValue());
+                            break;
+                        case NUMERIC:
+                            testData.add(NumberToTextConverter.toText(dataCell.getNumericCellValue()));
+                            break;
+                        default:
+                            testData.add("Invalid Data Type");
+                    }
+                }
+                break; // Break after finding the required row
+            }
+        }
+
+        workbook.close();
+        return testData;
+    }
+
+    // Main method for testing the DataDrivenFunction
+    public static void main(String[] args) {
+        DataDrivenFunction dataDrivenFunction = new DataDrivenFunction();
+        String filePath = "C:\\Users\\ritup\\IdeaProjects\\OOTBTestSuit\\src\\FetchData.xlsx";
+        String sheetName = "Sheet1";
+        String testCaseName = "LoginMethod"; // Example test case ID
+
+        try {
+            ArrayList<String> testData = dataDrivenFunction.getData(filePath, sheetName, testCaseName);
+            System.out.println("Test Data for " + testCaseName + ": " + testData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+/*package com.UtilityPkg.common;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -75,7 +172,7 @@ public class DataDrivenFunction {
             int colIndex = 0;
             while (cells.hasNext()) {
                 Cell cell = cells.next();
-                if (cell.getCellType() == CellType.STRING && cell.getStringCellValue().equalsIgnoreCase("Test_case_ID")) {
+                        if (cell.getCellType() == CellType.STRING && cell.getStringCellValue().equalsIgnoreCase("Test_case_ID")) {
                     return colIndex;
                 }
                 colIndex++;
@@ -84,7 +181,7 @@ public class DataDrivenFunction {
         return -1; // Column not found
     }
 }
-
+*/
 /*import com.google.common.collect.Table;
 import com.sun.rowset.internal.Row;
 import org.apache.poi.ss.usermodel.Cell;

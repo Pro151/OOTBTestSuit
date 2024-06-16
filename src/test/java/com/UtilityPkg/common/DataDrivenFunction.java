@@ -1,5 +1,92 @@
 package com.UtilityPkg.common;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class DataDrivenFunction {
+
+    // Method to get data from a specific row based on the test case name from the specified sheet
+    public ArrayList<String> getData(String filePath, String sheetName, String testCaseName) throws IOException {
+        ArrayList<String> data = new ArrayList<>();
+        FileInputStream fis = null;
+        XSSFWorkbook workbook = null;
+
+        try {
+            // Open the Excel file
+            fis = new FileInputStream(filePath);
+            workbook = new XSSFWorkbook(fis);
+
+            // Iterate through the sheets to find the specified sheet
+            XSSFSheet sheet = workbook.getSheet(sheetName);
+            if (sheet == null) {
+                throw new IllegalArgumentException("Sheet " + sheetName + " does not exist in the file.");
+            }
+
+            // Find the column index of the Test_case_ID column
+            int column = findColumnIndex(sheet, "Test_case_ID");
+            if (column == -1) {
+                throw new IllegalArgumentException("Test_case_ID column not found in the sheet " + sheetName);
+            }
+
+            // Iterate through the rows to find the specified test case row
+            Iterator<Row> rows = sheet.iterator();
+            while (rows.hasNext()) {
+                Row row = rows.next();
+                Cell cell = row.getCell(column);
+                if (cell != null && cell.getCellType() == CellType.STRING &&
+                        cell.getStringCellValue().equalsIgnoreCase(testCaseName)) {
+                    // Fetch all cells in the row and add their values to the data list
+                    for (Cell c : row) {
+                        if (c.getCellType() == CellType.STRING) {
+                            data.add(c.getStringCellValue());
+                        } else if (c.getCellType() == CellType.NUMERIC) {
+                            data.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+                        } else if (c.getCellType() == CellType.BOOLEAN) {
+                            data.add(String.valueOf(c.getBooleanCellValue()));
+                        } else if (c.getCellType() == CellType.BLANK) {
+                            data.add("");
+                        }
+                    }
+                    break; // Break the loop once the test case row is found
+                }
+            }
+        } finally {
+            // Close resources
+            if (workbook != null) {
+                workbook.close();
+            }
+            if (fis != null) {
+                fis.close();
+            }
+        }
+
+        return data;
+    }
+
+    // Method to find the column index by its header name in the first row
+    private int findColumnIndex(XSSFSheet sheet, String columnHeader) {
+        Row firstRow = sheet.getRow(0);
+        if (firstRow != null) {
+            Iterator<Cell> cells = firstRow.cellIterator();
+            int colIndex = 0;
+            while (cells.hasNext()) {
+                Cell cell = cells.next();
+                if (cell.getCellType() == CellType.STRING && cell.getStringCellValue().equalsIgnoreCase(columnHeader)) {
+                    return colIndex;
+                }
+                colIndex++;
+            }
+        }
+        return -1; // Column not found
+    }
+}
+
 /*import com.google.common.collect.Table;
 import com.sun.rowset.internal.Row;
 import org.apache.poi.ss.usermodel.Cell;
@@ -87,7 +174,7 @@ public class DataDrivenMethod {
 
 }*/
 
-import java.io.FileInputStream;
+/*import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -166,7 +253,7 @@ public class DataDrivenFunction {
     }
 
 
-}
+}*/
 
 
 

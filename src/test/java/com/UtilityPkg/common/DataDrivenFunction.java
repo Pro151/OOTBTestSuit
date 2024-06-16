@@ -29,15 +29,13 @@ public class DataDrivenFunction {
             }
 
             // Find the column index of the Test_case_ID column
-            int column = findColumnIndex(sheet, "Test_case_ID");
+            int column = findColumnIndex(sheet);
             if (column == -1) {
                 throw new IllegalArgumentException("Test_case_ID column not found in the sheet " + sheetName);
             }
 
             // Iterate through the rows to find the specified test case row
-            Iterator<Row> rows = sheet.iterator();
-            while (rows.hasNext()) {
-                Row row = rows.next();
+            for (Row row : sheet) {
                 Cell cell = row.getCell(column);
                 if (cell != null && cell.getCellType() == CellType.STRING &&
                         cell.getStringCellValue().equalsIgnoreCase(testCaseName)) {
@@ -70,14 +68,14 @@ public class DataDrivenFunction {
     }
 
     // Method to find the column index by its header name in the first row
-    private int findColumnIndex(XSSFSheet sheet, String columnHeader) {
+    private int findColumnIndex(XSSFSheet sheet) {
         Row firstRow = sheet.getRow(0);
         if (firstRow != null) {
             Iterator<Cell> cells = firstRow.cellIterator();
             int colIndex = 0;
             while (cells.hasNext()) {
                 Cell cell = cells.next();
-                if (cell.getCellType() == CellType.STRING && cell.getStringCellValue().equalsIgnoreCase(columnHeader)) {
+                if (cell.getCellType() == CellType.STRING && cell.getStringCellValue().equalsIgnoreCase("Test_case_ID")) {
                     return colIndex;
                 }
                 colIndex++;
